@@ -1,0 +1,8 @@
+curl -X POST "https://maestromlapp.com/test?API_KEY=MAESTROML-TEST-53407f1345ec4b4b8d39073" \
+  -H "Content-Type: application/json" \
+  -d '[
+        { "Sales": 7000000 },
+        { "Sales": 9000000 },
+        { "Sales": 11000000 },
+        { "Sales": 13000000 }
+      ]'
