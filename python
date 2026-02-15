@@ -1,0 +1,26 @@
+import requests
+
+# Define the endpoint and query parameters
+url = "https://maestromlapp.com/test"
+params = {
+    "API_KEY": "MAESTROML-TEST-53407f1345ec4b4b8d39073"
+}
+
+# Define the payload (JSON list)
+data = [
+    {"Sales": 7000000},
+    {"Sales": 9000000},
+    {"Sales": 11000000},
+    {"Sales": 13000000}
+]
+
+# Execute the POST request
+response = requests.post(url, params=params, json=data)
+
+# Check the results
+if response.status_code == 200:
+    print("Success!")
+    print(response.json())
+else:
+    print(f"Failed with status code: {response.status_code}")
+    print(response.text)
