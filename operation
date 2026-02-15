@@ -1,0 +1,75 @@
+URL https://maestromlapp.com
+Test endpoint uses linear regression
+Test Endpoint /test
+(Test) API_KEY=MAESTROML-TEST-53407f1345ec4b4b8d39073 
+(pass as a query)
+
+Postman
+https://maestromlapp.com/test?API_KEY=MAESTROML-TEST-53407f1345ec4b4b8d39073
+
+Single time series and predict N=1 (Default) periods forward
+[
+    {
+        "Sales": 7000000
+    },
+    {
+        "Sales": 9000000
+    },
+    {
+        "Sales": 11000000
+    },
+    {
+        "Sales": 13000000
+    }
+]
+
+CURL
+'''curl -X POST "https://maestromlapp.com/test?API_KEY=MAESTROML-TEST-53407f1345ec4b4b8d39073" \
+  -H "Content-Type: application/json" \
+  -d '[
+        { "Sales": 7000000 },
+        { "Sales": 9000000 },
+        { "Sales": 11000000 },
+        { "Sales": 13000000 }
+      ]'
+'''
+
+Single time series and predict N=3 periods forward
+[
+ {"Sales": 7000000, "periods": 3.0},
+ {"Sales": 9000000, "periods":  0.0},
+ {"Sales": 11000000, "periods": 0.0},
+ {"Sales": 13000000, "periods": 0.0}
+]
+
+OR
+[
+ {"Sales": 7000000, "periods": 3.0},
+ {"Sales": 9000000, "periods": 3.0},
+ {"Sales": 11000000, "periods": 3.0},
+ {"Sales": 13000000, "periods": 3.0}
+]
+
+Multiple time series and predict N=3 periods forward
+[
+    {
+        "Sales": 7000000,
+        "periods": 3.0,
+        "Sales2": 4666666.666666666
+    },
+    {
+        "Sales": 9000000,
+        "periods": 0.0,
+        "Sales2": 6000000.0
+    },
+    {
+        "Sales": 11000000,
+        "periods": 0.0,
+        "Sales2": 7333333.333333333
+    },
+    {
+        "Sales": 13000000,
+        "periods": 0.0,
+        "Sales2": 8666666.666666666
+    }
+]
